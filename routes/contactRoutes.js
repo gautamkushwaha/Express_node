@@ -4,8 +4,12 @@ const { getContacts,
     createContact,
     getContact,
     updateContact,
-    deleteContact } = require("../controllers/contactController")
+    deleteContact } = require("../controllers/contactController");
+const validateToken = require("../middleware/validateTokenHandler");
  
+
+
+router.use(validateToken);
 // for getting all the contact 
 router.route("/").get(getContacts).post(createContact);
 
